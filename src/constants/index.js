@@ -1,16 +1,9 @@
-/**
- * Configurações da API
- */
 export const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
-/**
- * Constantes para análise de correlação
- */
 export const CORRELATION_STRENGTH = {
     STRONG: 0.8,
     MODERATE: 0.5
 };
-
 /**
  * Configurações do gráfico
  */
