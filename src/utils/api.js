@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const apiUrl = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const api = {
     fetchRegression: async () => {
         try {
-            const response = await axios.get(`${apiUrl}/regression`);
+            const response = await axios.get(`${API_URL}/api/regression`);
             return response.data;
         } catch (error) {
             console.error('Erro ao buscar regressão:', error);
@@ -15,7 +15,7 @@ export const api = {
 
     addPoint: async (x, y) => {
         try {
-            const response = await axios.post(`${apiUrl}/data-points`, { x, y });
+            const response = await axios.post(`${API_URL}/api/data-points`, { x, y });
             return response.data;
         } catch (error) {
             console.error('Erro ao adicionar ponto:', error);
