@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { API_URL } from '../constants';
+
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const api = {
     fetchRegression: async () => {
         try {
-            const response = await axios.get(`${API_URL}/regression`);
+            const response = await axios.get(`${apiUrl}/regression`);
             return response.data;
         } catch (error) {
             console.error('Erro ao buscar regressão:', error);
@@ -14,7 +15,7 @@ export const api = {
 
     addPoint: async (x, y) => {
         try {
-            const response = await axios.post(`${API_URL}/data-points`, { x, y });
+            const response = await axios.post(`${apiUrl}/data-points`, { x, y });
             return response.data;
         } catch (error) {
             console.error('Erro ao adicionar ponto:', error);
@@ -24,7 +25,7 @@ export const api = {
 
     updatePoint: async (id, x, y) => {
         try {
-            const response = await axios.put(`${API_URL}/data-points/${id}`, { x, y });
+            const response = await axios.put(`${apiUrl}/data-points/${id}`, { x, y });
             return response.data;
         } catch (error) {
             console.error('Erro ao atualizar ponto:', error);
@@ -34,7 +35,7 @@ export const api = {
 
     deletePoint: async (id) => {
         try {
-            const response = await axios.delete(`${API_URL}/data-points/${id}`);
+            const response = await axios.delete(`${apiUrl}/data-points/${id}`);
             return response.data;
         } catch (error) {
             console.error('Erro ao deletar ponto:', error);
@@ -44,7 +45,7 @@ export const api = {
 
     clearAllPoints: async () => {
         try {
-            const response = await axios.delete(`${API_URL}/data-points`);
+            const response = await axios.delete(`${apiUrl}/data-points`);
             return response.data;
         } catch (error) {
             console.error('Erro ao limpar pontos:', error);
