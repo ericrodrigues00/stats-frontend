@@ -1,37 +1,54 @@
 import axios from 'axios';
 import { API_URL } from '../constants';
 
-/**
- * Funções de API para manipulação dos pontos de dados
- */
 export const api = {
-    // Busca todos os pontos e calcula a regressão
     fetchRegression: async () => {
-        const response = await axios.get(`${API_URL}/regression`);
-        return response.data;
+        try {
+            const response = await axios.get(`${API_URL}/regression`);
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao buscar regressão:', error);
+            throw error;
+        }
     },
 
-    // Adiciona um novo ponto
     addPoint: async (x, y) => {
-        const response = await axios.post(`${API_URL}/data-points`, { x, y });
-        return response.data;
+        try {
+            const response = await axios.post(`${API_URL}/data-points`, { x, y });
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao adicionar ponto:', error);
+            throw error;
+        }
     },
 
-    // Atualiza um ponto existente
     updatePoint: async (id, x, y) => {
-        const response = await axios.put(`${API_URL}/data-points/${id}`, { x, y });
-        return response.data;
+        try {
+            const response = await axios.put(`${API_URL}/data-points/${id}`, { x, y });
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao atualizar ponto:', error);
+            throw error;
+        }
     },
 
-    // Remove um ponto
     deletePoint: async (id) => {
-        const response = await axios.delete(`${API_URL}/data-points/${id}`);
-        return response.data;
+        try {
+            const response = await axios.delete(`${API_URL}/data-points/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao deletar ponto:', error);
+            throw error;
+        }
     },
 
-    // Remove todos os pontos
     clearAllPoints: async () => {
-        const response = await axios.delete(`${API_URL}/data-points`);
-        return response.data;
+        try {
+            const response = await axios.delete(`${API_URL}/data-points`);
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao limpar pontos:', error);
+            throw error;
+        }
     }
 };
